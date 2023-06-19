@@ -5,10 +5,10 @@ const Navbar = () => {
   return (
     <div className="navbarContainer">
         <h1 className='logo'>Jrcream</h1>
-        <ul className="nav">
-            <li>Inicio</li>
-            <li>Comprar</li>
-        </ul>
+        <select className="nav">
+        <option value="opcion1">Inicio</option>
+        <option value="opcion2">Comprar</option>
+        </select>
         <CartWidget />
     </div>
   )
