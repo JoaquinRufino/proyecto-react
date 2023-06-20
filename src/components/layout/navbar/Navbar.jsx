@@ -4,11 +4,11 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbarContainer">
-        <h1 className='logo'>Jrcream</h1>
-        <select className="nav">
-        <option value="opcion1">Inicio</option>
-        <option value="opcion2">Comprar</option>
-        </select>
+        <h1 className='logo'>Jr Cream</h1>
+        <ul className="nav">
+          <li>Inicio</li>
+          <li>Comprar</li>
+        </ul>
         <CartWidget />
     </div>
   )

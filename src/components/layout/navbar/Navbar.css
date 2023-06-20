@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+
 .navbarContainer{
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -13,35 +16,28 @@
 }
 
 
-
-
-
 .nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-image: none;
     height: 50px;
     width: 350px;
     margin-right: 50px;
     align-items: center;
     text-decoration:underline;
-    margin:  4px;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     list-style-type: none;
-    color: black;
+    color: #ffffff;
     transition: all 2s;
-
-
-    /*borrar estas dos*/
-    background-image: linear-gradient(#808080,#282a2c,#1c1919);
-    border-color: black;
-    
 }
 
 .logo{
-    padding-left: 20px;
-    
+    padding-left: 10px;
+    font-family: 'Tilt Prism', cursive;
+    font-size: 32px;
+    padding-bottom: 2px;
+    color: #ffffff;
 }
 
 
