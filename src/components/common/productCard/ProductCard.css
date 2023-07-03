@@ -1,0 +1,49 @@
+
+.articleProducto{
+display: flex;
+width: 100%;
+justify-content: space-around;
+background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
+
+}
+
+
+
+
+.card{
+    --bs-card-spacer-y: 0rem;
+    --bs-card-spacer-x: 0rem;
+    --bs-card-title-spacer-y: 0rem;
+    --bs-card-border-width: 0px;
+    --bs-card-border-radius: 0rem;
+}
+
+
+
+.ropa2{
+    width: 30%;
+    height: 90%;
+border-radius: 10px;
+transition: all 2s;
+box-shadow: 5px 20px 15px 20px rgb(28, 26, 26);
+margin: 40px;
+}
+
+
+.ropa2:hover{
+    width:35%;
+    height: 100%;
+    border-radius: 15px;
+    transform: scale(1,1);
+    box-shadow: 5px 10px 10px 20px
+    rgb(28, 26, 26);
+                
+}
+
+.div-card{
+    color: white;
+    margin-top: 80px;
+    padding-top: 40px;
+    font-size: 30px;
+    align-items: center;
+}
