@@ -1,17 +1,10 @@
-import ProductCard from '../../common/productCard/ProductCard';
 
-
-const ItemList = ({productos}) => {
-
+const ItemList = ({saludo}) => {
   return (
-    <section>
-      {productos.map((producto) => {
-          return (
-            <ProductCard key={producto.id} producto={producto} />
-          );
-        })}
-    </section>
-  );
-};
+    <div>
+        <h1>{saludo}</h1>
+    </div>
+  )
+}
 
 export default ItemList;
