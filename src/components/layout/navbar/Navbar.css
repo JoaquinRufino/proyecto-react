@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Tilt+Prism&display=swap');
 
 .navbarContainer{
     padding-bottom: 0px;
@@ -30,6 +30,7 @@
     list-style-type: none;
     color: #ffffff;
     transition: all 2s;
+    font-family: 'Roboto Slab', serif;
 }
 
 .logo{
