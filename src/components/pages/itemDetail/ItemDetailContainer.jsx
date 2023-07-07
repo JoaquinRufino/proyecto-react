@@ -5,7 +5,7 @@ import { products } from "../../../productsMock";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  let id = 1
+  let id = 2;
 
   useEffect(()=>{
 
