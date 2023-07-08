@@ -7,7 +7,7 @@ const ProductCard = ({ producto }) => {
       <div className="div-card">
         <h1>{producto.title}</h1>
         <h4>{producto.description}</h4>
-        <p>{producto.price}</p>
+        <button className="verDetalle">Ver Detalle</button>
       </div>
     </article>
   );

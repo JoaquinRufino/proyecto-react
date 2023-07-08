@@ -21,7 +21,7 @@
     justify-content: space-around;
     background-image: none;
     height: 50px;
-    width: 350px;
+    width: 400px;
     margin-right: 50px;
     align-items: center;
     text-decoration:underline;
@@ -31,6 +31,7 @@
     color: #ffffff;
     transition: all 2s;
     font-family: 'Roboto Slab', serif;
+    gap: 4px;
 }
 
 .logo{
@@ -39,6 +40,7 @@
     font-size: 32px;
     padding-bottom: 2px;
     color: #ffffff;
+    text-decoration: none;
 }
 
 

@@ -1,18 +1,18 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-//import { customTheme } from '../../../themeConfig';
-//import { ThemeProvider } from '@emotion/react';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
   return (
-    //<ThemeProvider theme={customTheme}>
+    
     <div>
         {/* icono de carrito */}
+        <Link to="/cart">
         <Badge badgeContent={4} color="primary">
             <ShoppingCartIcon color="action" />
         </Badge>
+        </Link>
     </div>
-    //</ThemeProvider>
   );
 }
 

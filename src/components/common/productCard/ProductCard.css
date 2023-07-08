@@ -4,10 +4,7 @@ display: flex;
 width: 100%;
 justify-content: space-around;
 background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
-
 }
-
-
 
 
 .card{
@@ -42,8 +39,62 @@ margin: 40px;
 
 .div-card{
     color: white;
-    margin-top: 80px;
-    padding-top: 40px;
+    margin-top: 0px;
+    padding-top: 0px;
     font-size: 30px;
-    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
+
+
+.verDetalle {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    margin-top: 25px;
+    height: 60px;
+    width: 120px;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.verDetalle::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.verDetalle:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+}
+   
+.verDetalle:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+}
+
+
