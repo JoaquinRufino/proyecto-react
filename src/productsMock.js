@@ -14,7 +14,7 @@ export const products = [
         price: "$2800",
         stock:5,
         description: 'Ice cream-Evil 🔥🔥',
-        category: 'economica',
+        category: 'economicas',
         img: 'https://res.cloudinary.com/dwbpfsjom/image/upload/v1669847361/fotos/sintitulo-2_denubr.png'
     },
     {
@@ -23,7 +23,7 @@ export const products = [
         price: "$2400",
         stock:5,
         description: 'Ice cream-Angry 🔥🔥',
-        category: 'economica',
+        category: 'economicas',
         img: 'https://res.cloudinary.com/dwbpfsjom/image/upload/v1669847363/fotos/sintitulo-39_ip2xmo.png'
     },
     {

@@ -1,0 +1,36 @@
+.div-detalle{
+    color: white;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 30px;
+    justify-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 40px;
+}
+
+.articleProductoDetail {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
+    height: 600px;
+}
+
+
+.ropaDetail{
+    width: 30%;
+    height: 50%;
+    border-radius: 10px;
+    transition: all 2s;
+    box-shadow: 5px 20px 15px 20px rgb(28, 26, 26);
+    margin: 40px;
+    margin-top: 140px;
+}
+
+.ropaDetail:hover{
+    width: 34%;
+    height: 55%;
+}

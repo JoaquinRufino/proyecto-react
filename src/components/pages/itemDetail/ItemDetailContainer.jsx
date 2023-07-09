@@ -1,16 +1,18 @@
 import ItemDetail from "./ItemDetail";
 import { useEffect, useState } from "react";
 import { products } from "../../../productsMock";
+import { useParams } from "react-router-dom";
+
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     
-    let id=3;
+    let {id} = useParams();
+    
 
     useEffect(()=>{
-
         let promesa = new Promise((resolve, reject) => {
-            let productSelected = products.find((product)=> product.id === id)
+            let productSelected = products.find((product)=> product.id === +id)
             resolve(productSelected);
         })
 
