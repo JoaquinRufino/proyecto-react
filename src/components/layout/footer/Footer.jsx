@@ -1,10 +1,16 @@
-// luego de mi estructura podria agregar el formulario tambien al footer y que me redirija a la pagina
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div>
-        <h1>El footer</h1>
-    </div>
+    <footer className="pie-de-pagina">
+        <article className="copyright ">
+            <h1 className="mover-copyright">© Copyright Jr cream</h1>
+        </article>
+        <article >
+            <Link className="redes" to="./checkout">Contacto</Link>
+        </article>
+    </footer>
   );
 };
 
