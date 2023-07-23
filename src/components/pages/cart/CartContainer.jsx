@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import "./CartContainer.css";
-
+import Button from '@mui/material/Button';
+import Cart from "./Cart";
 
 const CartContainer = () => {
-  const { cart, clearCart,deleteById } = useContext(CartContext);
+  const { cart, clearCart, deleteById, getTotalPrice} = useContext(CartContext);
+  
+  let total = getTotalPrice();
 
   return (
     <div className="carrito">
@@ -14,7 +17,7 @@ const CartContainer = () => {
             <img src={elemento.img} className="img-carrito" />
             <div className="div-info">
               <h1>{elemento.title}</h1>
-              <h2>{elemento.price}</h2>
+              <h2> ${elemento.price}</h2>
               <h3>Unidades:{elemento.quantity}</h3>
               <div className="div-botones">
                 {/*<button className="boton-carrito">Comprar</button>*/}
@@ -24,7 +27,13 @@ const CartContainer = () => {
           </div>
         );
       })}
-      <button onClick={clearCart}>Finalizar Compra</button>
+      {
+        cart.length > 0 ? <div className="div-finalizar">
+        <h1>Total a pagar: ${total} </h1>
+      <Button  variant="contained" color="success" onClick={clearCart}>Finalizar Compra</Button>
+      </div> : <Cart />
+      }
+      
     </div>
   );
 };

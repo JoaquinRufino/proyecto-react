@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
+
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   
@@ -14,7 +15,9 @@ const ItemListContainer = () => {
     let productosFiltrados = products.filter(elemento => elemento.category === categoryName);
 
     const getProducts = new Promise((resolve, reject) => {
+      setTimeout(() => {
       resolve(categoryName ? productosFiltrados : products);
+      }, 1000);
     });
   
     getProducts.then((respuesta) => setProductos(respuesta))
@@ -22,6 +25,8 @@ const ItemListContainer = () => {
   }, [categoryName]);
     
   
-  return <ItemList productos={productos} />;
+  return(
+    <ItemList productos={productos} />
+    );
 };
 export default ItemListContainer;

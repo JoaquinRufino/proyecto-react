@@ -1,0 +1,22 @@
+.skeleton{
+    height: 400px;
+    width: 100%;
+    background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+    padding-right: 80px;
+    padding-left: 160px;
+}
+
+.figura{
+    padding-left: 160px;
+    border-radius: 10px;
+    transition: all 2s;
+    box-shadow: 5px 20px 15px 20px rgb(28, 26, 26);
+
+}
+
+.box{
+    padding-top: 20px;
+}

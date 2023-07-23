@@ -2,7 +2,7 @@ export const products = [
     {
         id: 1,
         title: 'Nft exclusive White Edition',
-        price: "$3600",
+        price: 3600,
         stock:8,
         description: 'Ice cream-Hungry 🔥🔥',
         category: 'suplex',
@@ -11,7 +11,7 @@ export const products = [
     {
         id: 2,
         title: 'Nft exclusive Black Edition',
-        price: "$2800",
+        price: 2800,
         stock:5,
         description: 'Ice cream-Evil 🔥🔥',
         category: 'economicas',
@@ -20,7 +20,7 @@ export const products = [
     {
         id: 3,
         title: 'Nft exclusive White Edition',
-        price: "$2400",
+        price: 2400,
         stock:5,
         description: 'Ice cream-Angry 🔥🔥',
         category: 'economicas',
@@ -29,7 +29,7 @@ export const products = [
     {
         id: 4,
         title: 'Nft exclusive Black Edition',
-        price: "$4200",
+        price: 4200,
         stock:8,
         description: 'Ice cream-Crazy 🔥🔥',
         category: 'suplex',

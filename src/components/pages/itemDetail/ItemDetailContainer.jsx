@@ -10,7 +10,10 @@ const ItemDetailContainer = () => {
     
     let {id} = useParams();
     
-    const {addToCart} = useContext(CartContext);
+    const {addToCart, getQuantityById } = useContext(CartContext);
+
+    let cantidadEnCarrito = getQuantityById(id);
+
 
     useEffect(()=>{
         let promesa = new Promise((resolve, reject) => {
@@ -31,7 +34,7 @@ const ItemDetailContainer = () => {
         addToCart(data);
     };
 
-    return <ItemDetail product= {product} agregarAlCarrito={agregarAlCarrito} />;
+    return <ItemDetail product= {product} agregarAlCarrito={agregarAlCarrito} cantidadEnCarrito={cantidadEnCarrito} />;
 
 };
 
