@@ -1,58 +1,76 @@
-import "./Checkout.css"
+import Button from "@mui/material/Button";
+import "./Checkout.css";
 
-const Checkout = ({ funcionDelFormulario, funcionDeLosInput }) => {
+const Checkout = ({ handleSubmit, handleChange, orderId }) => {
   return (
-    <div className="formularioDiv">
-      <div className="form" >
-        <form
-          target="_blank"
-          action="https://formsubmit.co/rufinojoaquin10@gmail.com"
-          method="POST"
-          onSubmit={funcionDelFormulario}
-        >
-          
-            <input className="input-control"
-              onChange={funcionDeLosInput}
-              type="text"
-              placeholder="Ingrese su nombre"
-              name="name"
-            />
-          
-          
-            <input className="input-control"
-              onChange={funcionDeLosInput}
-              type="text"
-              placeholder="Ingrese su apellido"
-              name="lastName"
-            />
-          
-          <article className="form-label">
-            <label className="form-label">
-              Email
-            </label>
-            <div className="input-group has-validation mb-1">
-              <span className="input-group-text" id="inputGroupPrepend">
-                @
-              </span>
+    <div className="checkout">
+          {!orderId ? (
+            <div className="formularioDiv">
+            <div className="form">
+              <div className="form">
+            <form onSubmit={handleSubmit}>
+              {/*target="_blank"
+        action="https://formsubmit.co/rufinojoaquin10@gmail.com"
+method="POST"*/}
               <input
+                className="input-control"
+                onChange={handleChange}
                 type="text"
-                className="form-control"
-                id="validationCustomUsername"
-                aria-describedby="inputGroupPrepend"
-                required
+                placeholder="Ingrese su nombre"
+                name="name"
               />
+              <input
+                className="input-control"
+                onChange={handleChange}
+                type="text"
+                placeholder="Ingrese su apellido"
+                name="lastName"
+              />
+              <input
+                className="input-control"
+                onChange={handleChange}
+                type="text"
+                placeholder="Ingrese su telefono"
+                name="phone"
+              />
+
+              <article className="form-label">
+                <label className="form-label">Email</label>
+                <div className="input-group has-validation mb-1">
+                  <span className="input-group-text" id="inputGroupPrepend">
+                    @
+                  </span>
+                  <input
+                    type="text"
+                    name="email"
+                    className="form-control"
+                    id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                  />
+                </div>
+              </article>
+              <div className="botonesEnviar-cancelar">
+                <Button variant="contained" type="submit">
+                  Comprar
+                </Button>
+                <Button variant="contained" type="button">
+                  Cancelar
+                </Button>
+              </div>
+            </form>
             </div>
-          </article>
-          <div className="botonesEnviar-cancelar">
-          <button className="Enviar-cancelar" type="submit">
-            Enviar
-          </button>
-          <button className="Enviar-cancelar" type="button">
-            Cancelar
-          </button>
+            </div>
           </div>
-        </form>
-      </div>
+          ) : (
+            <div className="order-div">
+              <div className="orderIdDiv">
+              <h1 className="orderId">Su orden de compra es 👇👇 </h1>
+              </div>
+              <h2 className="orderIdh2">{orderId}</h2>
+              <Button variant="contained">Volver a la tienda</Button>
+            </div>
+          )}
     </div>
   );
 };

@@ -7,6 +7,7 @@ const Footer = () => {
         <article className="copyright ">
             <h1 className="mover-copyright">© Copyright Jr cream</h1>
         </article>
+        <Link to="/dashboard" className="redes">Admi</Link>
         <article >
             <Link className="redes" to="./checkout">Contacto</Link>
         </article>
