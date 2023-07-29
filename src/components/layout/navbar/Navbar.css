@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Tilt+Prism&display=swap');
+
+.navbarContainer{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background-image: linear-gradient(#808080,#282a2c,#1c1919);
+    top: 0px;
+    position: sticky;
+    z-index: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+    background-image: none;
+    height: 50px;
+    width: 400px;
+    margin-right: 50px;
+    align-items: center;
+    text-decoration:underline;
+    text-align: center;
+    font-size: 22px;
+    list-style-type: none;
+    color: #ffffff;
+    transition: all 2s;
+    font-family: 'Roboto Slab', serif;
+    gap: 10px;
+}
+
+
+.logo{
+    padding-left: 10px;
+    font-family: 'Tilt Prism', cursive;
+    font-size: 32px;
+    padding-bottom: 2px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-productos{
+    text-decoration: none;
+    color: #ffffff;
+}

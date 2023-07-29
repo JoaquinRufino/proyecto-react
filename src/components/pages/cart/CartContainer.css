@@ -1,0 +1,90 @@
+.img-carrito{
+    width: 330px;
+    height: 280px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    transition: all 2s;
+    box-shadow: 0px 10px 15px 20px rgb(5, 5, 5);
+    margin-bottom: 30px;
+}
+
+.img-carrito:hover{
+    width: 350px;
+    height: 300px;
+    box-shadow: 5px 10px 15px 20px rgb(6, 5, 5);
+}
+
+.div-carrito{
+height: 400px;
+border: 1px solid black;
+align-items: center;
+display: flex;
+justify-content: space-around;
+padding-top: 10px;
+background-image: linear-gradient(rgb(0, 0, 0), rgb(51, 48, 48), rgb(2, 1, 1));
+}
+
+
+
+
+.div-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 22px;
+    color: white;
+    
+}
+
+
+.div-botones{
+width: 200px;
+display: flex;
+justify-content: space-around;
+margin-top: 20px;
+}
+
+.boton-carrito{
+    width: 80px;
+    height: 35px;
+    box-shadow: 2px 4px 5px 2px rgb(28, 26, 26);
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    
+}
+
+.finalizar{
+    height: 40px;
+    width: 180px;
+    font-size: 22px;
+    border-radius: 15px;
+}
+
+
+.div-finalizar{
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    gap: 20px;
+    background-image: linear-gradient(#000000,#212224,rgb(26, 22, 22));
+}
+
+
+.carrito-vacio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    gap: 40px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+    background-image: linear-gradient(#1c1919,#212224,rgb(26, 22, 22));
+}
