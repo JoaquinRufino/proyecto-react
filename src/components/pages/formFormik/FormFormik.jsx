@@ -1,23 +1,29 @@
-import { Button, FilledInput, IconButton, InputAdornment, InputLabel, TextField } from "@mui/material";
+import {Button,IconButton,InputAdornment,InputLabel,TextField,} from "@mui/material";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as Yup from "yup";
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { OutlinedInput } from "@mui/material";
 import { FormControl } from "@mui/base";
-import "./FormFormik.css"
+import "./FormFormik.css";
+import { CartContext } from "../../../context/CartContext";
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 
 const FormFormik = () => {
-
-        const [showPassword, setShowPassword] = useState(false);
-      
-        const handleClickShowPassword = () => setShowPassword((show) => !show);
-      
-        const handleMouseDownPassword = (event) => {
-          event.preventDefault();
-        };
+  const [showPassword, setShowPassword] = useState(false);
   
+  const {cart, getTotalPrice} = useContext(CartContext);
+  let total = getTotalPrice();
+  
+  const [orderId, setOrderId] = useState("");
+
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -25,9 +31,25 @@ const FormFormik = () => {
       email: "",
       password: "",
       repet: "",
+      phone: "",
     },
     onSubmit: (data) => {
-      console.log(data);
+      let order = {
+        buyer: data,
+        items: cart,
+        total,
+        date: serverTimestamp(),
+      };
+      
+    let ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
+
+    cart.forEach((elemento) => {
+      updateDoc(doc(db, "products", elemento.id), {
+        stock: elemento.stock - elemento.quantity,
+      });
+    });
+
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -37,22 +59,29 @@ const FormFormik = () => {
       email: Yup.string()
         .email("No corresponde a un email valido")
         .required("Este campo es obligatorio"),
+
+      phone: Yup.string()
+      .required("Este campo es obligatorio"),
+
       password: Yup.string()
-        .required("Este campo es obligatorio")
-        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/, {
-          message: "La contraseña debe tener al menos 1 mayuscula y 6 caracteres ",
-        }),
-      repet: Yup.string()
-        .required("Este campo es obligatorio")
-        .oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
+      .required("Este campo es obligatorio")
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/, {
+        message:
+          "La contraseña debe tener al menos 1 mayuscula y 6 caracteres ",
+      }),
+    repet: Yup.string()
+     .required("Este campo es obligatorio")
+     .oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
     }),
     validateOnChange: false,
   });
 
   return (
     <div className="formulario-div">
-      <form onSubmit={handleSubmit}>
-        <TextField 
+      {
+        !orderId ? 
+          <form onSubmit={handleSubmit}>
+        <TextField
           label="Nombre"
           variant="outlined"
           name="name"
@@ -70,19 +99,22 @@ const FormFormik = () => {
           error={errors.email ? true : false}
           helperText={errors.email}
         />
-        
-          <FormControl variant="filled">
-          <OutlinedInput style={{width:"400px"}}
+
+        <FormControl variant="filled">
+          <OutlinedInput
+            style={{ width: "400px" }}
             label="Password"
             variant="outlined"
             name="password"
             onChange={handleChange}
             error={errors.password ? true : false}
             id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             endAdornment={
-                <InputAdornment position="end">
-                  <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+              <InputAdornment position="end">
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
                 <IconButton
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
@@ -93,10 +125,9 @@ const FormFormik = () => {
                 </IconButton>
               </InputAdornment>
             }
-            
           />
           </FormControl>
-          
+
         <TextField
           type="text"
           label="Repet"
@@ -107,14 +138,26 @@ const FormFormik = () => {
           helperText={errors.repet}
         />
 
-        <Button type="submit" variant="contained">
-          Enviar
-        </Button>
+        <TextField
+          type="text"
+          label="Phone"
+          variant="outlined"
+          name="phone"
+          onChange={handleChange}
+          error={errors.phone ? true : false}
+          helperText={errors.phone}
+        />
 
-      </form>
+        <Button type="submit" variant="contained">
+          Comprar
+        </Button>
+        <Button type="reset" variant="contained">
+          Cancelar 
+        </Button>
+      </form> : <h1>Gracias por su compra, su numero de orden es {orderId}</h1>
+      }
     </div>
   );
 };
-
 
 export default FormFormik;

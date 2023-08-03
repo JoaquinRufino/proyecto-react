@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import "./Checkout.css";
+import { Link } from "react-router-dom";
 
 const Checkout = ({ handleSubmit, handleChange, orderId }) => {
   return (
@@ -68,7 +69,9 @@ method="POST"*/}
               <h1 className="orderId">Su orden de compra es 👇👇 </h1>
               </div>
               <h2 className="orderIdh2">{orderId}</h2>
-              <Button variant="contained">Volver a la tienda</Button>
+              <Link to="/itemList">
+                  <Button variant="contained">Volver a la tienda</Button>
+              </Link>
             </div>
           )}
     </div>

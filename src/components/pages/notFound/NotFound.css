@@ -1,8 +1,16 @@
-.notFound{
+.div-notFound{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    font-size: 60px;
+    background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
+    height:700px;
+}
+
+
+
+
+.notFound{
+    padding-bottom: 40px;
+    font-size: 80px;
 }

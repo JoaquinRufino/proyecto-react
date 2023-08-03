@@ -6,7 +6,6 @@ import Home from "../components/pages/Home/Home";
 import ItemDetailContainer from "../components/pages/itemDetail/ItemDetailContainer";
 import ItemListContainer from "../components/pages/itemList/ItemListContainer";
 import FormFormik from "../components/pages/formFormik/FormFormik";
-import Dashboard from "../components/pages/dashboard/Dashboard";
 
     export const routes = [
             {
@@ -43,10 +42,5 @@ import Dashboard from "../components/pages/dashboard/Dashboard";
                 id: "formik",
                 path: "/formik",
                 Element: FormFormik,
-            },
-            {
-                id: "dashboard",
-                path: "/dashboard",
-                Element: Dashboard,
             },
         ];
