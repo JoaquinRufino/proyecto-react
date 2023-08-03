@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
         let refCollection = collection(db, "products");
         let refDoc = doc(refCollection, id);
         getDoc(refDoc).then(res => setProduct({ ...res.data(), id: res.id }));
-    }, 2000);
+    }, 1000);
     }, [id]);
     
     const agregarAlCarrito = (cantidad) => {
