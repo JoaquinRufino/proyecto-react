@@ -10,9 +10,7 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
             <div className="form">
               <div className="form">
             <form onSubmit={handleSubmit}>
-              {/*target="_blank"
-        action="https://formsubmit.co/rufinojoaquin10@gmail.com"
-method="POST"*/}
+             
               <input
                 className="input-control"
                 onChange={handleChange}

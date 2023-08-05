@@ -1,4 +1,10 @@
-import {Button,IconButton,InputAdornment,InputLabel,TextField,} from "@mui/material";
+import {
+  Button,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  TextField,
+} from "@mui/material";
 import { useFormik } from "formik";
 import { useContext, useState } from "react";
 import * as Yup from "yup";
@@ -8,16 +14,22 @@ import Visibility from "@mui/icons-material/Visibility";
 //import { FormControl } from "@mui/base";
 import "./FormFormik.css";
 import { CartContext } from "../../../context/CartContext";
-import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 
 const FormFormik = () => {
   //const [showPassword, setShowPassword] = useState(false);
-  
-  const {cart, getTotalPrice} = useContext(CartContext);
-  let total = getTotalPrice();
-  
-  const [orderId, setOrderId] = useState("");
 
+  const { cart, getTotalPrice,envioFormulario } = useContext(CartContext);
+  let total = getTotalPrice();
+  let envio = envioFormulario();
+
+  const [orderId, setOrderId] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -40,16 +52,15 @@ const FormFormik = () => {
         total,
         date: serverTimestamp(),
       };
-      
-    let ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
 
-    cart.forEach((elemento) => {
-      updateDoc(doc(db, "products", elemento.id), {
-        stock: elemento.stock - elemento.quantity,
+      let ordersCollection = collection(db, "orders");
+      addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
+
+      cart.forEach((elemento) => {
+        updateDoc(doc(db, "products", elemento.id), {
+          stock: elemento.stock - elemento.quantity,
+        });
       });
-    });
-
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -60,8 +71,7 @@ const FormFormik = () => {
         .email("No corresponde a un email valido")
         .required("Este campo es obligatorio"),
 
-      phone: Yup.string()
-      .required("Este campo es obligatorio"),
+      phone: Yup.string().required("Este campo es obligatorio"),
 
       //password: Yup.string()
       //.required("Este campo es obligatorio")
@@ -69,38 +79,37 @@ const FormFormik = () => {
       //  message:
       //"La contraseña debe tener al menos 1 mayuscula y 6 caracteres ",
       //}),
-    //repet: Yup.string()
-     //.required("Este campo es obligatorio")
-     //.oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
+      //repet: Yup.string()
+      //.required("Este campo es obligatorio")
+      //.oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
     }),
     //validateOnChange: false,
   });
 
   return (
     <div className="formulario-div">
-      {
-        !orderId ? 
-          <form onSubmit={handleSubmit}>
-        <TextField
-          label="Nombre"
-          variant="outlined"
-          name="name"
-          onChange={handleChange}
-          error={errors.name ? true : false}
-          helperText={errors.name}
-        />
-
-        <TextField
-          type="text"
-          label="Email"
-          variant="outlined"
-          name="email"
-          onChange={handleChange}
-          error={errors.email ? true : false}
-          helperText={errors.email}
-        />
-
-        {/*<FormControl variant="filled">
+      {!orderId ? (
+        <form onSubmit={handleSubmit}>
+          target="_blank"
+          action="https://formsubmit.co/rufinojoaquin10@gmail.com" method="POST"
+          <TextField
+            label="Nombre"
+            variant="outlined"
+            name="name"
+            onChange={handleChange}
+            error={errors.name ? true : false}
+            helperText={errors.name}
+          />
+          <TextField
+            type="text"
+            label="Email"
+            variant="outlined"
+            name="email"
+            onChange={handleChange}
+            error={errors.email ? true : false}
+            helperText={errors.email}
+          />
+          {/*<FormControl variant="filled">
           <OutlinedInput
             style={{ width: "400px" }}
             label="Password"
@@ -137,25 +146,27 @@ const FormFormik = () => {
           error={errors.repet ? true : false}
           helperText={errors.repet}
           />*/}
-
-        <TextField
-          type="text"
-          label="Phone"
-          variant="outlined"
-          name="phone"
-          onChange={handleChange}
-          error={errors.phone ? true : false}
-          helperText={errors.phone}
-        />
-
-        <Button type="submit" variant="contained">
-          Comprar
-        </Button>
-        <Button type="reset" variant="contained">
-          Cancelar 
-        </Button>
-      </form> : <h1>Gracias por su compra, su numero de orden es {orderId}</h1>
-      }
+          <TextField
+            type="text"
+            label="Phone"
+            variant="outlined"
+            name="phone"
+            onChange={handleChange}
+            error={errors.phone ? true : false}
+            helperText={errors.phone}
+          />
+          <Button type="submit" variant="contained">
+            Enviar
+          </Button>
+          <Button type="reset" variant="contained">
+            Cancelar
+          </Button>
+        </form>
+      ) : (
+        <div>
+          <h2>{envio}</h2>
+        </div>
+      )}
     </div>
   );
 };

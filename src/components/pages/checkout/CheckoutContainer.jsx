@@ -48,12 +48,6 @@ const CheckoutContainer = () => {
       });
     });
 
-    Toastify({
-      text: "Compra realizada con exito",
-      duration: 3000,
-    }).showToast();
-
-    navigate("/itemList");
   };
 
   const handleChange = (evento) => {
