@@ -39,9 +39,11 @@ const FormFormik = () => {
           action="https://formsubmit.co/rufinojoaquin10@gmail.com" method="POST">
           
           <TextField
-            className="input-control"
             type="text"
             label="Nombre"
+            InputLabelProps={{
+              style: { color: 'white' },
+            }}
             variant="outlined"
             name="name"
             onChange={handleChange}
@@ -49,9 +51,11 @@ const FormFormik = () => {
             helperText={errors.name}
           />
           <TextField 
-            className="input-control"
             type="text"
             label="Email"
+            InputLabelProps={{
+              style: { color: 'white' },
+            }}
             variant="outlined"
             name="email"
             onChange={handleChange}
@@ -59,9 +63,11 @@ const FormFormik = () => {
             helperText={errors.email}
           />
           <TextField
-            className="input-control"
             type="text"
             label="Phone"
+            InputLabelProps={{
+              style: { color: 'white' },
+            }}
             variant="outlined"
             name="phone"
             onChange={handleChange}
