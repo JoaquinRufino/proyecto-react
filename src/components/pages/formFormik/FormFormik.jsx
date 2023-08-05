@@ -5,7 +5,6 @@ import "./FormFormik.css"
 
 const FormFormik = () => {
 
-  
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
@@ -46,7 +45,6 @@ const FormFormik = () => {
 
   return (
     <div className="formulario-div">
-      {!orderId ? (
         <form onSubmit={handleSubmit}>
           target="_blank"
           action="https://formsubmit.co/rufinojoaquin10@gmail.com" method="POST"
@@ -120,11 +118,6 @@ const FormFormik = () => {
             Cancelar
           </Button>
         </form>
-      ) : (
-        <div>
-          <h2>{envio}</h2>
-        </div>
-      )}
     </div>
   );
 };
