@@ -3,15 +3,15 @@ import { useFormik } from "formik";
 import { useContext, useState } from "react";
 import * as Yup from "yup";
 import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { OutlinedInput } from "@mui/material";
-import { FormControl } from "@mui/base";
+//import VisibilityOff from "@mui/icons-material/VisibilityOff";
+//import { OutlinedInput } from "@mui/material";
+//import { FormControl } from "@mui/base";
 import "./FormFormik.css";
 import { CartContext } from "../../../context/CartContext";
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 
 const FormFormik = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  //const [showPassword, setShowPassword] = useState(false);
   
   const {cart, getTotalPrice} = useContext(CartContext);
   let total = getTotalPrice();
@@ -29,9 +29,9 @@ const FormFormik = () => {
     initialValues: {
       name: "",
       email: "",
-      password: "",
-      repet: "",
       phone: "",
+      //password: "",
+      //repet: "",
     },
     onSubmit: (data) => {
       let order = {
@@ -63,17 +63,17 @@ const FormFormik = () => {
       phone: Yup.string()
       .required("Este campo es obligatorio"),
 
-      password: Yup.string()
-      .required("Este campo es obligatorio")
-      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/, {
-        message:
-          "La contraseña debe tener al menos 1 mayuscula y 6 caracteres ",
-      }),
-    repet: Yup.string()
-     .required("Este campo es obligatorio")
-     .oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
+      //password: Yup.string()
+      //.required("Este campo es obligatorio")
+      //.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/, {
+      //  message:
+      //"La contraseña debe tener al menos 1 mayuscula y 6 caracteres ",
+      //}),
+    //repet: Yup.string()
+     //.required("Este campo es obligatorio")
+     //.oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
     }),
-    validateOnChange: false,
+    //validateOnChange: false,
   });
 
   return (
@@ -100,7 +100,7 @@ const FormFormik = () => {
           helperText={errors.email}
         />
 
-        <FormControl variant="filled">
+        {/*<FormControl variant="filled">
           <OutlinedInput
             style={{ width: "400px" }}
             label="Password"
@@ -128,7 +128,7 @@ const FormFormik = () => {
           />
           </FormControl>
 
-        <TextField
+          <TextField
           type="text"
           label="Repet"
           variant="outlined"
@@ -136,7 +136,7 @@ const FormFormik = () => {
           onChange={handleChange}
           error={errors.repet ? true : false}
           helperText={errors.repet}
-        />
+          />*/}
 
         <TextField
           type="text"
