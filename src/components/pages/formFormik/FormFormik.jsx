@@ -34,7 +34,7 @@ const FormFormik = () => {
 
   return (
     <div className="formulario-div">
-        <form className="formFormik" onSubmit={handleSubmit}
+        <form onSubmit={handleSubmit}
           target="_blank"
           action="https://formsubmit.co/rufinojoaquin10@gmail.com" method="POST">
           
