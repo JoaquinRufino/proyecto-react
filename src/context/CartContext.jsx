@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 const CartContextComponent = ({ children }) => {
   //aca va toda la logica que retornamos en el provider para toda la aplicacion
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState( JSON.parse(localStorage.getItem("cart")) || []);
   
   const addToCart = (product) => {
     let existe = cart.some((elemento) => elemento.id === product.id);
@@ -18,20 +18,24 @@ const CartContextComponent = ({ children }) => {
         }
       });
 
+      localStorage.setItem("cart", JSON.stringify(newArr));
       setCart(newArr);
     }else{
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
       setCart([...cart, product]);
     }
   };
 
 
   const clearCart = () => {
+    localStorage.removeItem("cart");
     setCart([]);
   };
 
 
   const deleteById = (id) => {
     let newCart = cart.filter((elemento) => elemento.id !== id);
+    localStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
 
