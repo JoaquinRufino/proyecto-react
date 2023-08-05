@@ -5,10 +5,8 @@
     align-items: center;
     flex-direction: column;
     padding-top: 40px;
+    color: white;
     background-image: linear-gradient(rgb(26, 22, 22),#282a2c,#1c1919);
 }
 
-#outlined-adornment-password{
-    display: flex;
-    align-items: flex-start;
-}
+

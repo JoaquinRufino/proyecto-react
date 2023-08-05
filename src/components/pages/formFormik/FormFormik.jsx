@@ -1,66 +1,35 @@
-//import VisibilityOff from "@mui/icons-material/VisibilityOff";
-//import { OutlinedInput } from "@mui/material";
-//import { FormControl } from "@mui/base";
-import "./FormFormik.css";
-import { CartContext, useContext } from "../../../context/CartContext";
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { useFormik } from "formik";
+import { Button, TextField } from "@mui/material";
+import * as Yup from "yup";
+import "./FormFormik.css"
 
 const FormFormik = () => {
-  //const [showPassword, setShowPassword] = useState(false);
 
-  const { cart, getTotalPrice,envioFormulario } = useContext(CartContext);
-  let total = getTotalPrice();
-  let envio = envioFormulario();
-
-  const [orderId, setOrderId] = useState("");
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
+  
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
-      //password: "",
-      //repet: "",
+      
     },
-    onSubmit: (data) => {
-      let order = {
-        buyer: data,
-        items: cart,
-        total,
-        date: serverTimestamp(),
-      };
-
-      let ordersCollection = collection(db, "orders");
-      addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
-
-      cart.forEach((elemento) => {
-        updateDoc(doc(db, "products", elemento.id), {
-          stock: elemento.stock - elemento.quantity,
-        });
-      });
+    onSubmit: (data) => {   
+      console.log(data);
     },
     validationSchema: Yup.object({
       name: Yup.string()
         .required("Este campo es obligatorio")
         .min(5, "Debe tener al menos 5 caracteres")
-        .max(15),
+        .max(20),
       email: Yup.string()
         .email("No corresponde a un email valido")
         .required("Este campo es obligatorio"),
 
-      phone: Yup.string().required("Este campo es obligatorio"),
+      phone: Yup.string()
+      .required("Este campo es obligatorio")
+      .matches(/^{6,15}$/,{
+        message: "Ingrese un numero de telefono valido ",
+      }),
 
       //password: Yup.string()
       //.required("Este campo es obligatorio")
@@ -72,7 +41,7 @@ const FormFormik = () => {
       //.required("Este campo es obligatorio")
       //.oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
     }),
-    //validateOnChange: false,
+    validateOnChange: false,
   });
 
   return (
@@ -161,3 +130,8 @@ const FormFormik = () => {
 };
 
 export default FormFormik;
+
+
+
+
+
