@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+
 import Checkout from "./Checkout";
 import { useContext, useState } from "react";
-import Toastify from "toastify-js";
+
 import "toastify-js/src/toastify.css";
 import { db } from "../../../firebaseConfig";
 import {
@@ -14,7 +14,7 @@ import {
 import { CartContext } from "../../../context/CartContext";
 
 const CheckoutContainer = () => {
-  const navigate = useNavigate();
+
 
   const { cart, getTotalPrice } = useContext(CartContext);
 
