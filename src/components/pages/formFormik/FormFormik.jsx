@@ -38,6 +38,8 @@ const FormFormik = () => {
           target="_blank"
           action="https://formsubmit.co/rufinojoaquin10@gmail.com" method="POST">
           <TextField
+            className="input-control"
+            type="text"
             label="Nombre"
             variant="outlined"
             name="name"
@@ -46,6 +48,7 @@ const FormFormik = () => {
             helperText={errors.name}
           />
           <TextField
+            className="input-control"
             type="text"
             label="Email"
             variant="outlined"
@@ -55,7 +58,8 @@ const FormFormik = () => {
             helperText={errors.email}
           />
           <TextField
-            type="text"
+            className="input-control"
+            type="number"
             label="Phone"
             variant="outlined"
             name="phone"
