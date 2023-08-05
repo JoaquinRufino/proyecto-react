@@ -26,9 +26,8 @@ const FormFormik = () => {
 
       phone: Yup.string()
       .required("Este campo es obligatorio")
-      .matches(/^{6,15}$/,{
-        message: "Ingrese un numero de telefono valido ",
-      }),
+      .matches(/^[0-9]+$/, "Debe ser un numero"),
+
 
       //password: Yup.string()
       //.required("Este campo es obligatorio")
