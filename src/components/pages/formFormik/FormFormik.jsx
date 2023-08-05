@@ -42,7 +42,7 @@ const FormFormik = () => {
             type="text"
             label="Nombre"
             InputLabelProps={{
-              style: { color: 'white', borderColor: 'white' },
+              style: { color: 'white' },
             }}
             variant="outlined"
             name="name"
@@ -54,7 +54,7 @@ const FormFormik = () => {
             type="text"
             label="Email"
             InputLabelProps={{
-              style: { color: 'white', borderColor: 'white' },
+              style: { color: 'white' },
             }}
             variant="outlined"
             name="email"
@@ -66,7 +66,7 @@ const FormFormik = () => {
             type="text"
             label="Phone"
             InputLabelProps={{
-              style: { color: 'white', borderColor: 'white' },
+              style: { color: 'white' },
             }}
             variant="outlined"
             name="phone"
