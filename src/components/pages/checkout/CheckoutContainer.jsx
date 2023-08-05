@@ -48,13 +48,12 @@ const CheckoutContainer = () => {
       });
     });
 
-    // Toastify({
-    // text: "Compra realizada con exito",
+    Toastify({
+      text: "Compra realizada con exito",
+      duration: 3000,
+    }).showToast();
 
-    // duration: 3000,
-    // }).showToast();
-
-    //navigate("/itemList");
+    navigate("/itemList");
   };
 
   const handleChange = (evento) => {
