@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgb(26, 22, 22), grey, rgb(26, 22, 22));
+    background-image: linear-gradient(rgb(26, 22, 22), rgb(87, 84, 84), rgb(26, 22, 22));
     height:700px;
 }
 
@@ -18,7 +18,7 @@
 
 
 .volverInicio{
-    text-decoration: solid;
+    text-decoration:underline ;
     color: white;
     font-size: 26px;
 
