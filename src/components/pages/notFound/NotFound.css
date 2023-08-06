@@ -13,4 +13,13 @@
 .notFound{
     padding-bottom: 40px;
     font-size: 80px;
+    color: white;
+}
+
+
+.volverInicio{
+    text-decoration: solid;
+    color: white;
+    font-size: 26px;
+
 }
