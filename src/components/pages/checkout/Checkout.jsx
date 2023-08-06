@@ -44,6 +44,7 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
                     name="email"
                     className="form-control"
                     id="validationCustomUsername"
+                    onChange={handleChange}
                     aria-describedby="inputGroupPrepend"
                     required
                   />
@@ -53,9 +54,11 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
                 <Button variant="contained" type="submit">
                   Comprar
                 </Button>
+                <Link to="/itemList">
                 <Button variant="contained" type="button">
                   Cancelar
                 </Button>
+                </Link>
               </div>
             </form>
             </div>

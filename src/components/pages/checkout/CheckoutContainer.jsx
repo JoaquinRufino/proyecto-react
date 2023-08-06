@@ -35,7 +35,7 @@ const CheckoutContainer = () => {
     let order = {
       buyer: userData,
       items: cart,
-      total,
+      total: total,
       date: serverTimestamp(),
     };
 
