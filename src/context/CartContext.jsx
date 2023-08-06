@@ -41,15 +41,15 @@ const CartContextComponent = ({ children }) => {
   const getTotalQuantity = () => {
     let total = cart.reduce((acc, elemento) => {
       return acc + elemento.quantity;
-    }, 0);
-    return total;
+    }, 0)
+    return total
   };
 
   const getTotalPrice = () => {
     let total = cart.reduce((acc, elemento) => {
-      return acc + elemento.price * elemento.quantity;
-    }, 0);
-    return total;
+      return acc + (elemento.price * elemento.quantity)
+    }, 0)
+    return total
   };
 
   const getQuantityById = (id) => {
