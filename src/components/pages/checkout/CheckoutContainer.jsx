@@ -1,7 +1,6 @@
 
 import Checkout from "./Checkout";
 import { useContext, useState } from "react";
-
 import "toastify-js/src/toastify.css";
 import { db } from "../../../firebaseConfig";
 import {
@@ -27,32 +26,50 @@ const CheckoutContainer = () => {
     email: "",
   });
 
-  let total = getTotalPrice();
+
 
   const handleSubmit = (evento) => {
     evento.preventDefault();
 
+    const total = getTotalPrice();
+
+    const itemsInOrder = cart.map((item) => ({ ...item }));
+    
     let order = {
       buyer: userData,
-      items: cart,
+      items: itemsInOrder,
       total: total,
       date: serverTimestamp(),
     };
 
     let ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
-
-    cart.forEach((elemento) => {
-      updateDoc(doc(db, "products", elemento.id), {
-        stock: elemento.stock - elemento.quantity,
-      });
+    addDoc(ordersCollection, order).then((res) => {
+      setOrderId(res.id);
+      clearCart();
+    //cart.forEach((elemento) => {
+      //updateDoc(doc(db, "products", elemento.id), {
+        //stock: elemento.stock - elemento.quantity,
+     // });
     });
 
-  };
+  //};
+
+
+   // Actualizar el stock de productos en la base de datos
+   itemsInOrder.forEach((item) => {
+    updateDoc(doc(db, "products", item.id), {
+      stock: item.stock - item.quantity,
+    });
+  });
+};
+
+
 
   const handleChange = (evento) => {
     setUserData({ ...userData, [evento.target.name]: evento.target.value });
   };
+
+
 
   return (
     <Checkout
