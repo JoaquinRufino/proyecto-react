@@ -33,9 +33,9 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
               />
 
               <article className="form-label">
-                {/*<label className="form-label">Email</label>
+                {/*<label className="form-label">Email</label>*/}
                 <div className="input-group has-validation mb-1">
-                  <span className="input-group-text" id="inputGroupPrepend">
+                 {/* <span className="input-group-text" id="inputGroupPrepend">
                     @
           </span>*/}
                   <input
