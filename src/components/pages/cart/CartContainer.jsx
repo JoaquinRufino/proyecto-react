@@ -9,6 +9,7 @@ const CartContainer = () => {
   const { cart, clearCart, deleteById, getTotalPrice } =
     useContext(CartContext);
 
+
   let total = getTotalPrice();
 
   return (
@@ -20,7 +21,19 @@ const CartContainer = () => {
             <div className="div-info">
               <h1>{elemento.title}</h1>
               <h2> ${elemento.price}</h2>
-              <h3>Unidades:{elemento.quantity}</h3>
+              <div className="div-unidades">
+              <p>Selecciona las unidades:</p>
+              {Array.from({ length: elemento.stock }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => console.log(`Seleccionaste ${index + 1} unidades`)}
+                  className="boton-unidad"
+                >
+                  Unidad {index + 1}
+                </button>
+              ))}
+            </div>
+              {/*<h3>Unidades:{elemento.quantity}</h3>*/}
               <div className="div-botones">
                 {/*<button className="boton-carrito">Comprar</button>*/}
                 <button
