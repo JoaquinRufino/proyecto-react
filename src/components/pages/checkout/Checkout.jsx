@@ -8,7 +8,6 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
           {!orderId ? (
             <div className="formularioDiv">
             <div className="form">
-              <div className="form">
             <form onSubmit={handleSubmit}>
              
               <input
@@ -34,11 +33,11 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
               />
 
               <article className="form-label">
-                <label className="form-label">Email</label>
+                {/*<label className="form-label">Email</label>
                 <div className="input-group has-validation mb-1">
                   <span className="input-group-text" id="inputGroupPrepend">
                     @
-                  </span>
+          </span>*/}
                   <input
                     type="text"
                     name="email"
@@ -63,7 +62,6 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
             </form>
             </div>
             </div>
-          </div>
           ) : (
             <div className="order-div">
               <div className="orderIdDiv">

@@ -4,9 +4,7 @@ export const CartContext = createContext();
 
 const CartContextComponent = ({ children }) => {
   //aca va toda la logica que retornamos en el provider para toda la aplicacion
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
   const addToCart = (product) => {
     let existe = cart.some((elemento) => elemento.id === product.id);
@@ -33,9 +31,9 @@ const CartContextComponent = ({ children }) => {
   };
 
   const deleteById = (id) => {
-    let newCart = cart.filter((elemento) => elemento.id !== id);
-    localStorage.setItem("cart", JSON.stringify(newCart));
-    setCart(newCart);
+    let newArr = cart.filter((elemento) => elemento.id !== id);
+    localStorage.setItem("cart", JSON.stringify(newArr));
+    setCart(newArr);
   };
 
   const getTotalQuantity = () => {
@@ -76,8 +74,7 @@ const CartContextComponent = ({ children }) => {
     deleteById,
     getTotalQuantity,
     getTotalPrice,
-    getQuantityById,
-    envioFormulario,
+    getQuantityById
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

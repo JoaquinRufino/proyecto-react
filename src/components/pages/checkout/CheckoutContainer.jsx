@@ -26,7 +26,9 @@ const CheckoutContainer = () => {
     email: "",
   });
 
+   let total = getTotalPrice();
 
+   
   const handleSubmit = (evento) => {
     evento.preventDefault();
 
@@ -34,7 +36,7 @@ const CheckoutContainer = () => {
     let order = {
       buyer: userData,
       items: cart,
-      total: getTotalPrice(),
+      total,
       date: serverTimestamp(),
     };
 
