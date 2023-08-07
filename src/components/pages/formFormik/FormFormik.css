@@ -9,7 +9,8 @@
     background-image: linear-gradient(rgb(26, 22, 22),#282a2c,#1c1919);
 }
 
-.formFormik{
+#formFormik{
     padding-top: 60px;
+    
 }
 

@@ -8,7 +8,7 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
           {!orderId ? (
             <div className="formularioDiv">
             <div className="form">
-            <form onSubmit={handleSubmit}>
+            <form className="formulario-checkout" onSubmit={handleSubmit}>
              
               <input
                 className="input-control"
