@@ -60,7 +60,7 @@ background-color: black;
 
 .input-control:focus-visible{
   outline: none;
-  border: 1px solid #0060df;
+  border: 1px solid #2276e4;
 }
 
 .form-control {
