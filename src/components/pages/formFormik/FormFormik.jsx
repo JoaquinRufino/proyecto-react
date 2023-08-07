@@ -38,8 +38,7 @@ const FormFormik = () => {
 
   return (
     <div className="formulario-div">
-      <form
-        className="formFormik"
+      <form className="formFormik"
         onSubmit={handleSubmit}
         action="https://formsubmit.co/rufinojoaquin10@gmail.com"
         method="POST"
