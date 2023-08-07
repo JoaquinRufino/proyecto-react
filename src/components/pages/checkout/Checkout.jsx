@@ -41,6 +41,7 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
                   <input
                     type="text"
                     name="email"
+                    placeholder="Ingrese su email"
                     className="form-control"
                     id="validationCustomUsername"
                     onChange={handleChange}

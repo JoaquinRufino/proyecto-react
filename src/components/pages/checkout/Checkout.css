@@ -26,7 +26,7 @@ form {
   height: 400px;
   box-shadow: 0px 8px 35px 15px black;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
 }
 
 
@@ -58,12 +58,13 @@ background-color: black;
 }
 
 .form-control {
-width: 312px;
+width: 400px;
 height: 40px;
 border-radius: 5px;
 background-color: black;
 color: white;
 font-size: 14px;
+padding-left: 4px;
 }
 
 .Enviar-cancelar{
@@ -76,9 +77,9 @@ font-size: 14px;
 .botonesEnviar-cancelar{
     display: flex;
     justify-content: space-evenly;
-    width: 350px;
-    padding-left: 50px;
-    gap: 10px;
+    width: 300px;
+    gap: 15px;
+    padding-left: 5px;
 }
 
 
