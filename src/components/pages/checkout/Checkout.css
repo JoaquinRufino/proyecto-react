@@ -58,9 +58,10 @@ color: white;
 background-color: black;
 }
 
-.input-control:focus {
+.input-control:focus-visible{
   outline: none;
-  border: 1px solid #00ff00;
+  border: 1px solid #ced4da;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
 .form-control {
