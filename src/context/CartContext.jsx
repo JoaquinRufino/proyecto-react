@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Toastify from "toastify-js";
 
 export const CartContext = createContext();
 
