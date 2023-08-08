@@ -4,9 +4,10 @@ import * as Yup from "yup";
 import "./FormFormik.css";
 import "toastify-js/src/toastify.css";
 import Toastify from "toastify-js";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 
 const FormFormik = () => {
+  const navigate = useNavigate();
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
