@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 const Checkout = ({ handleSubmit, handleChange, orderId }) => {
   return (
     <div className="checkout">
-          {!orderId ? (
-            <div className="formularioDiv">
-            <div className="form">
+      {!orderId ? (
+        <div className="formularioDiv">
+          <div className="form">
             <form className="formulario-checkout" onSubmit={handleSubmit}>
-             
               <input
                 className="input-control"
                 onChange={handleChange}
@@ -35,7 +34,7 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
               <article className="form-label">
                 {/*<label className="form-label">Email</label>*/}
                 <div className="input-group has-validation mb-1">
-                 {/* <span className="input-group-text" id="inputGroupPrepend">
+                  {/* <span className="input-group-text" id="inputGroupPrepend">
                     @
           </span>*/}
                   <input
@@ -55,25 +54,25 @@ const Checkout = ({ handleSubmit, handleChange, orderId }) => {
                   Comprar
                 </Button>
                 <Link to="/itemList">
-                <Button variant="contained" type="button">
-                  Cancelar
-                </Button>
+                  <Button variant="contained" type="button">
+                    Cancelar
+                  </Button>
                 </Link>
               </div>
             </form>
-            </div>
-            </div>
-          ) : (
-            <div className="order-div">
-              <div className="orderIdDiv">
-              <h1 className="orderId">Su orden de compra es 👇👇 </h1>
-              </div>
-              <h2 className="orderIdh2">{orderId}</h2>
-              <Link to="/itemList">
-                  <Button variant="contained">Volver a la tienda</Button>
-              </Link>
-            </div>
-          )}
+          </div>
+        </div>
+      ) : (
+        <div className="order-div">
+          <div className="orderIdDiv">
+            <h1 className="orderId">Su orden de compra es 👇👇 </h1>
+          </div>
+          <h2 className="orderIdh2">{orderId}</h2>
+          <Link to="/itemList">
+            <Button variant="contained">Volver a la tienda</Button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

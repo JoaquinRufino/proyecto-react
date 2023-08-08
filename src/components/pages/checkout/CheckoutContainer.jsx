@@ -1,7 +1,6 @@
 
 import Checkout from "./Checkout";
 import { useContext, useState } from "react";
-import "toastify-js/src/toastify.css";
 import { db } from "../../../firebaseConfig";
 import {
   addDoc,
@@ -40,8 +39,8 @@ const CheckoutContainer = () => {
       date: serverTimestamp(),
     };
 
-    let ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
+    let ordersCollections = collection(db, "orders");
+    addDoc(ordersCollections, order).then((res) => setOrderId(res.id));
       
     cart.forEach((elemento) => {
       updateDoc(doc(db, "products", elemento.id), {
