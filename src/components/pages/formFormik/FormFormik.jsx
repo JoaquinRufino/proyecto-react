@@ -2,10 +2,13 @@ import { useFormik } from "formik";
 import { Button, TextField } from "@mui/material";
 import * as Yup from "yup";
 import "./FormFormik.css";
+import { useContext } from "react";
 
 const FormFormik = () => {
 
-  const { handleSubmit, handleChange, errors, envioFormulario } = useFormik({
+  const {envioFormulario} = useContext(CartContext);
+
+  const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
       email: "",
