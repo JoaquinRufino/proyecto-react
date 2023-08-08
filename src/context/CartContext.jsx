@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Toastify from "toastify-js";
+
 
 export const CartContext = createContext();
 
@@ -58,15 +58,6 @@ const CartContextComponent = ({ children }) => {
     return producto?.quantity;
   };
 
-  const envioFormulario = (e) => {
-    e.preventDefault();
-    Toastify({
-      text: "Formulario enviado con exito",
-      duration: 3000,
-    }).showToast();
-
-    navigate("/itemList");
-  };
 
   let data = {
     cart,
@@ -75,8 +66,7 @@ const CartContextComponent = ({ children }) => {
     deleteById,
     getTotalQuantity,
     getTotalPrice,
-    getQuantityById,
-    envioFormulario
+    getQuantityById
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

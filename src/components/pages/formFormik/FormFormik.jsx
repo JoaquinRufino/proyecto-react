@@ -2,12 +2,9 @@ import { useFormik } from "formik";
 import { Button, TextField } from "@mui/material";
 import * as Yup from "yup";
 import "./FormFormik.css";
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
+import Toastify from "toastify-js";
 
 const FormFormik = () => {
-
-  const {envioFormulario} = useContext(CartContext);
 
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -16,7 +13,13 @@ const FormFormik = () => {
       phone: "",
     },
     onSubmit: () => {
-      envioFormulario();
+      Toastify({
+        text: "Formulario enviado correctamente",
+        duration: 3000,
+        
+      }).showToast();
+
+      navigate("/itemList");
     },
     validationSchema: Yup.object({
       name: Yup.string()
