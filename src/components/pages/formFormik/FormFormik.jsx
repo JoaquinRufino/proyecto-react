@@ -6,19 +6,15 @@ import * as Yup from "yup";
 import "./FormFormik.css";
 
 const FormFormik = () => {
-  const navigate = useNavigate();
-  const { handleSubmit, handleChange, errors } = useFormik({
+
+  const { handleSubmit, handleChange, errors, envioFormulario } = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
     },
     onSubmit: () => {
-      Toastify({
-        text: "Formulario enviado correctamente",
-        duration: 3000,
-      }).showToast();
-      navigate("/itemList");
+      envioFormulario();
     },
     validationSchema: Yup.object({
       name: Yup.string()

@@ -74,7 +74,8 @@ const CartContextComponent = ({ children }) => {
     deleteById,
     getTotalQuantity,
     getTotalPrice,
-    getQuantityById
+    getQuantityById,
+    envioFormulario
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

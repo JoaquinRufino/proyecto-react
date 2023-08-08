@@ -21,7 +21,7 @@ const CartContainer = () => {
             <div className="div-info">
               <h1>{elemento.title}</h1>
               <h2> ${elemento.price}</h2>
-              <h3>Unidades:{elemento.quantity}</h3>
+              <h3>Unidades: {elemento.quantity}</h3>
               <div className="div-botones">
                 {/*<button className="boton-carrito">Comprar</button>*/}
                 <button
