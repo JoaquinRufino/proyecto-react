@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { Button, TextField } from "@mui/material";
 import * as Yup from "yup";
 import "./FormFormik.css";
-import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const FormFormik = () => {
 
